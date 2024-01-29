@@ -10,15 +10,15 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
+    <header class='text-center'>
         
         <h1>TODOLIST</h1>
                    
     </header>
     <main>
         <div class="container">
-            <div class="row">
-                <div class="col-12">
+            <div class="row justify-content-center">
+                <div class="col-8">
                     <ul class="list-unstyled">
                         <li>cose da fare</li>
                         <li>cose da fare</li>
