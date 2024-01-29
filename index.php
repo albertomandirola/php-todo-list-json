@@ -18,10 +18,19 @@
                 <div class="row justify-content-center">
                     <div class="col-8">
                         <ul class="list-unstyled">
-                            <li class='py-2' v-for="todo, key in todoList" :key="key">
-                                {{todo.name}}
+                            <li class='py-2' v-for="todo, index in todoList" :key="index">
+                                <div @click="doneTodo(index)" :class="todoList[index].done == true ? 'text-decoration-line-through' : ''">
+                                    {{todo.name}}
+                                </div>
                             </li>
                         </ul>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group mb-3">
+                            <input @keyup.enter="addTodo" v-model="todoNew" type="text" class="form-control" placeholder="add todo" aria-label="add todo" aria-describedby="button-addon2">
+                            <button @click="addTodo" class="btn btn-outline-success" type="button" id="button-addon2">Button</button>
+                        </div>
+
                     </div>
                 </div>
             </div>  
