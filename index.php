@@ -18,9 +18,13 @@
                 <div class="row justify-content-center">
                     <div class="col-8">
                         <ul class="list-unstyled">
-                            <li class='py-2' v-for="todo, index in todoList" :key="index">
-                                <div @click="doneTodo(index)" :class="todoList[index].done == true ? 'text-decoration-line-through' : ''">
+                            <li class='py-2 d-flex justify-content-between' v-for="todo, index in todoList" :key="index">
+                                <div @click="toggleTodoStatus(index)" :class="todoList[index].done == true ? 'text-decoration-line-through' : ''">
                                     {{todo.name}}
+                                </div>
+                                <div>
+                                    <button @click="toggleTodoStatus(index)" class="btn btn-sm btn-primary me-1" >Done</button>
+                                    <button @click="deleteTodo(index)" class="btn btn-sm btn-danger ms-1">Delete</button>
                                 </div>
                             </li>
                         </ul>

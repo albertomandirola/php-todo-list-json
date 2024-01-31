@@ -19,6 +19,24 @@ if (isset($_POST['name'])) {
     // save the new file todo in json
     file_put_contents('todo-list.json', json_encode($list));
 }
+if (isset($_POST['todoIndex'])) {
+    //create variable whose value is the user input
+    $index = $_POST['todoIndex'];
+    $list[$index]['done'] = !$list[$index]['done'];
+    
+    
+    
+
+    // save the new file todo in json
+    file_put_contents('todo-list.json', json_encode($list));
+}
+
+if(isset($_POST['todoIndexDelete'])){
+    $index = $_POST['todoIndexDelete'];
+    
+    array_splice($list, $index, 1);
+    file_put_contents('todo-list.json', json_encode($list));
+}
 
 header('Content-Type: application/json');
 
